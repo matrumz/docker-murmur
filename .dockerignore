@@ -1,0 +1,11 @@
+# Ignore everything...
+**
+
+# ... except ...
+!/src/**
+
+# ... but also
+**/*~
+**/*.log
+**/.DS_Store
+**/Thumbs.db
