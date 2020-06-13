@@ -1,4 +1,4 @@
-FROM alpine:3.12.0
+FROM arm32v7/alpine:3.12.0
 LABEL maintainer="matrumz <matrumz@nobugs-justfeatures.com>"
 
 # Use a non-root user for murmur server
@@ -21,8 +21,9 @@ COPY src/opt ${SCRIPTS_PATH}
 RUN chown -R murmur:murmur ${DATA_PATH} ${SCRIPTS_PATH}
 
 # Install murmur package
-RUN apk add murmur=1.3.0-r6 \
-    && rm -rf /var/cache/apk/
+RUN apk update && \
+    apk add murmur=1.3.1-r0 && \
+    rm -rf /var/cache/apk/
 
 # Expose default murmur ports
 EXPOSE 64738 64738/udp
