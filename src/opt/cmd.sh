@@ -1,9 +1,9 @@
 #!/usr/bin/env sh
 
-cmd="murmurd -fg -ini "${DATA_PATH}"/murmur.ini"
+INI="${DATA_PATH}"/murmur.ini
 
 if [[ ! -z ${SUPERUSER_PASSWORD} ]]; then
-    cmd=$cmd" -supw "${SUPERUSER_PASSWORD}
+    murmurd -ini "$INI" -supw "${SUPERUSER_PASSWORD}"
 fi
 
-eval $cmd
+murmurd -fg -ini "$INI"
